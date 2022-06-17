@@ -2,12 +2,16 @@ package jpabook.jpashop.repository;
 
 import jpabook.jpashop.domain.Member;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import java.util.List;
+
 
 @Repository
 @RequiredArgsConstructor
@@ -15,6 +19,7 @@ public class MemberRepository {
     // 스프링이 @PersistenceContext 애너테이션에 JPA Entity 매니저를 주입해준다.
 //    @PersistenceContext
 //    private EntityManager em;
+
     private final EntityManager em;
 
     // EntityManagerFactory를 주입받고 싶으면 아래와 같이 하면 주입 받을 수 있다. (PersistenceContext 가 있어서 거의 사용 X)
@@ -22,7 +27,7 @@ public class MemberRepository {
 //    private EntityManagerFactory emf;
 
 
-   public void save(Member member) {
+    public void save(Member member) {
         em.persist(member);
     }
 
@@ -41,3 +46,5 @@ public class MemberRepository {
                 .getResultList();
     }
 }
+
+
