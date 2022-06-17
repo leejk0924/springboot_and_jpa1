@@ -1,6 +1,7 @@
 package jpabook.jpashop.domain;
 
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.util.List;
 public class Member {
 
     @Id @GeneratedValue
+
     @Column(name="member_id")
     private Long id;
 
@@ -21,5 +23,7 @@ public class Member {
 
     @OneToMany(mappedBy="member")
     private List<Order> orders = new ArrayList<>();
+
+
 
 }
