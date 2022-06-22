@@ -24,20 +24,20 @@ public class OrderRepository {
         return em.find(Order.class, id);
     }
 
-    public List<Order> findAll(OrderSearch orderSearch) {
-
+    public List<Order> findAllByString(OrderSearch orderSearch) {
+        // sql 문 띄어쓰기 조심
         String jpql = "select o from Order o join o.member m";
         boolean isFirstCondition = true;
 
         // 주문 상태 검색     (jpql 동적으로 빌드)
         if (orderSearch.getOrderStatus() != null) {
             if (isFirstCondition) {
-                jpql += "where";
+                jpql += " where";
                 isFirstCondition = false;
             } else {
                 jpql += "and";
             }
-            jpql += " o.status =:status";
+            jpql += " o.status = :status";
         }
 
         // 회원 이름 검색
@@ -46,7 +46,7 @@ public class OrderRepository {
                 jpql += "where";
                 isFirstCondition = false;
             } else {
-                jpql += "and";
+                jpql += " and";
             }
             jpql += " m.name like :name";
         }
