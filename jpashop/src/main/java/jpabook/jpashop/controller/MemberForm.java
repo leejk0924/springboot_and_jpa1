@@ -2,8 +2,10 @@ package jpabook.jpashop.controller;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.AnnotationConfigUtils;
 
 import javax.validation.constraints.NotEmpty;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -16,4 +18,7 @@ public class MemberForm {
     private String street;
     private String zipcode;
 
+    public static void main(String[] args) {
+        
+    }
 }

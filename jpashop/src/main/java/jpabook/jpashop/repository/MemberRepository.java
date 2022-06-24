@@ -18,7 +18,7 @@ import java.util.List;
 public class MemberRepository {
     // 스프링이 @PersistenceContext 애너테이션에 JPA Entity 매니저를 주입해준다.
 //    @PersistenceContext
-//    private EntityManager em;
+//    private EntityManager em;SELECT * FROM MEMBER
 
     private final EntityManager em;
 
